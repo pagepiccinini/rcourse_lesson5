@@ -1,0 +1,1 @@
+year	incumbent	incumbent_party	challenger	challenger_party2012	obama	democrat	romney	republican2004	bush_w	republican	kerry	democrat1996	clinton	democrat	dole	republican1992	bush	republican	clinton	democrat1984	reagan	republican	mondale	democrat1980	carter	democrat	reagan	republican1972	nixon	republican	mcgovern	democrat1964	johnson	democrat	goldwater	republican
