@@ -24,7 +24,7 @@ xtabs(~civil_war, data_states)
 data_states_clean = data_states %>%
   filter(!is.na(civil_war)) %>%
   group_by(civil_war) %>%
-  arrange(desc = order_enter) %>%
+  arrange(order_enter) %>%
   filter(row_number() <= 11) %>%
   ungroup()
 
