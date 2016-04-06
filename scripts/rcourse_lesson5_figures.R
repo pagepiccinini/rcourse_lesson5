@@ -1,5 +1,5 @@
 ## READ IN DATA ####
-source("scripts/rcourse_lesson4_cleaning.R")
+source("scripts/rcourse_lesson5_cleaning.R")
 
 
 ## LOAD PACKAGES ####
@@ -36,7 +36,6 @@ data_figs_sum = data_figs_state_sum %>%
 incumbent_histogram_full.plot = ggplot(data_figs, aes(x = perc_votes_incumbent,
                                                       fill = incumbent_party)) +
   geom_histogram(bins = 10) +
-  #scale_color_manual(values = c("blue", "red")) +
   facet_grid(incumbent_party ~  civil_war) +
   ggtitle("Percentage of Votes for Incumbent\nby Country in Civil War and Party of Incumbent") +
   xlab("Civil War country and incumbent party") +
