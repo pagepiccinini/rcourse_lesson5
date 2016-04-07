@@ -113,16 +113,16 @@ incumbent_unbal.ezanova = ezANOVA(data.frame(data_unbal_stats),
 incumbent_unbal.ezanova
 
 # Follow-up t-test (effect of incumbent party, separated by civil war)
-incumbent_union.ttest = t.test(data_union_stats$democrat, data_union_stats$republican, paired = T)
-incumbent_union.ttest
+incumbent_unbal_union.ttest = t.test(data_unbal_union_stats$democrat, data_unbal_union_stats$republican, paired = T)
+incumbent_unbal_union.ttest
 
-incumbent_confederacy.ttest = t.test(data_confederacy_stats$democrat, data_confederacy_stats$republican, paired = T)
-incumbent_confederacy.ttest
+incumbent_unbal_confederacy.ttest = t.test(data_unbal_confederacy_stats$democrat, data_unbal_confederacy_stats$republican, paired = T)
+incumbent_unbal_confederacy.ttest
 
 # Follow-up t-test (effect of incumbent party, separated by civil war)
-incumbent_democrat.ttest = t.test(perc_incumbent_mean ~ civil_war, paired = F, data = data_democrat_stats)
-incumbent_democrat.ttest
+incumbent_unbal_democrat.ttest = t.test(perc_incumbent_mean ~ civil_war, paired = F, data = data_unbal_democrat_stats)
+incumbent_unbal_democrat.ttest
 
-incumbent_republican.ttest = t.test(perc_incumbent_mean ~ civil_war, paired = F, data = data_republican_stats)
-incumbent_republican.ttest
+incumbent_unbal_republican.ttest = t.test(perc_incumbent_mean ~ civil_war, paired = F, data = data_unbal_republican_stats)
+incumbent_unbal_republican.ttest
 
