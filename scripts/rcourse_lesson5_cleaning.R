@@ -42,29 +42,3 @@ xtabs(~year+civil_war, data_clean)
 xtabs(~incumbent_party+civil_war, data_clean)
 
 
-## CLEAN DATA - UNBALANCED DATA SET ####
-# Drop union states besides the first 11 that entered the union
-data_states_unbal_clean = data_states %>%
-  filter(!is.na(civil_war))
-
-# Double check balanced for 'civil_war' variable
-xtabs(~civil_war, data_states_unbal_clean)
-
-# Combine three data sets
-data_unbal_clean = data_election_results %>%
-  inner_join(data_elections) %>%
-  inner_join(data_states_unbal_clean) %>%
-  mutate(state = factor(state))
-
-# Double check all of numbers are balanced
-xtabs(~year+civil_war, data_unbal_clean)
-xtabs(~incumbent_party+civil_war, data_unbal_clean)
-
-
-
-
-
-
-
-
-
