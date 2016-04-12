@@ -1,13 +1,11 @@
 ---
-title: 'R Course: Lesson 4'
+title: 'R Course: Lesson 5'
 author: "Page Piccinini"
-date: "March 17, 2016"
-output: html_document
+date: "April 7, 2016"
+output: pdf_document
 ---
 ```{r, echo=FALSE}
-load("rcourse_lesson4_environment.RData")
-
-library(knitr)
+load("rcourse_lesson5_environment.RData")
 ```
 
 # Introduction
@@ -16,7 +14,7 @@ Today I looked at election data from eight United States presidential elections 
 
 # Data
 
-Since I'm using an ANOVA today, I needed to make sure my data set was balanced. So, instead of taking all states that were officially states during the civil war I made sure it was the same number in each group (Union, Confederacy). There were only 11 Confederacy states, so to get a matched sample of Union states I used data from the first 11 states that were admitted to the Union. For example, California was not included because it joined the Union later than other states.
+Since I'm using an ANOVA today, I needed to make sure my data set was balanced. So, instead of taking all states that were officially states during the civil war, I made sure it was the same number in each group (Union, Confederacy). There were only 11 Confederacy states, so to get a matched sample of Union states I used data from the first 11 Union states that were admitted to the United States. For example, California was not included because it joined the United States later than other states.
 
 # Results
 
@@ -40,14 +38,14 @@ To test this effect I ran an analysis of variance (ANOVA). The dependent variabl
 incumbent.aov_sum
 ```
 
-To better understand the interaction of incumbent party and civil war, I ran t-tests looking at my two main effects within subsets of the data. Looking first within civil war country, I ran a paired t-test to see if both groups showed a difference of incumbent party. I find that for union states there is a significant effect at p < 0.05 (*p* = `r incumbent_union.ttest$p.value`), but this will not hold with p-value correction. However, for states from the confederacy the effect remains very strong (*p* = `r incumbent_confederacy.ttest$p.value`), showing that confederacy states have a strong preference for Republican incumbents.
+To better understand the interaction of incumbent party and civil war, I ran t-tests looking at my two main effects within subsets of the data. To account for my multiple tests, I did Bonferroni correction, making my new p-value for significance `r 0.05 / 4`. Looking first within civil war country, I ran paired t-tests to see if either group showed a difference of incumbent party. I found that for Union states there was not a significant effect given my p-value correction (*p* = `r round(incumbent_union.ttest$p.value, 4)`). However, for states from the Confederacy the effect was very strong (*p* < 0.001), showing that Confederacy states have a strong preference for Republican incumbents. By looking at the mean of the differences for each test we can further say that Confederacy states' preference is indeed much larger than Union states' preference.
 
 ```{r}
 incumbent_union.ttest
 incumbent_confederacy.ttest
 ```
 
-I can also look at the results within party, to see if there is a difference depending on the status of a state during the civil war. To do this I ran an unpaired t-test within each party. For Democrats there is clearly an effect (p = `r incumbent_democrat.ttest$p.value`), where Democratic incumbents get a much higher percentage of votes from Union states than Confederacy state. Republicans show a strong effect in the reverse direction (p = `r incumbent_republican.ttest$p.value`), with getting a higher percentage of votes from Confederacy states.
+I can also look at the results within party, to see if there is a difference depending on the status of a state during the civil war. To do this I ran unpaired t-tests within each party. For Democrats there was a significant effect (*p* < 0.001), where Democratic incumbents get a much higher percentage of votes from Union states than Confederacy state. Republicans show a significant effect in the reverse direction (*p* < 0.001), getting a higher percentage of votes from Confederacy states.
 
 ```{r}
 incumbent_democrat.ttest
@@ -56,4 +54,4 @@ incumbent_republican.ttest
 
 # Conclusion
 
-A states' status during the civil war has a large effect on how it votes. However, the effect is stronger for states from the Confederacy, who have a much stronger Republican bias than Union states have a Democrat bias.
+A state's status during the civil war has a large effect on how it votes. However, the effect is stronger for states from the Confederacy, who have a much stronger Republican bias than Union states have a Democrat bias.
