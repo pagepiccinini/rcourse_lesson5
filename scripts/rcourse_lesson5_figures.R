@@ -54,13 +54,10 @@ incumbent_histogram_full.plot = ggplot(data_figs, aes(x = perc_votes_incumbent,
   # Customize the y-axis
   ylab("Count") +
   # Remove dark background
-  theme_bw() +
+  theme_classic() +
   # Additional paramaters for displaying plot
   theme(text=element_text(size=18), title=element_text(size=18),
-        panel.border = element_blank(),
-        panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
-        axis.line = element_line(colour = "black"),
-        legend.position="none", legend.key=element_blank(),
+        legend.position="none",
         strip.background = element_rect(color="white", fill="white"))
 
 # Write figure to a pdf in the 'figures' folder
@@ -84,13 +81,10 @@ incumbent_histogram_sum.plot = ggplot(data_figs_state_sum, aes(x = perc_incumben
   # Customize the y-axis
   ylab("Count") +
   # Remove dark background
-  theme_bw() +
+  theme_classic() +
   # Additional paramaters for displaying plot
   theme(text=element_text(size=18), title=element_text(size=18),
-        panel.border = element_blank(),
-        panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
-        axis.line = element_line(colour = "black"),
-        legend.position="none", legend.key=element_blank(),
+        legend.position="none",
         strip.background = element_rect(color="white", fill="white"))
 
 # Write figure to a pdf in the 'figures' folder
@@ -118,13 +112,10 @@ incumbent_boxplot.plot = ggplot(data_figs_state_sum, aes(x = civil_war, y = perc
   # Get rid of title for legend
   labs(fill = "") +
   # Remove dark background
-  theme_bw() +
+  theme_classic() +
   # Additional paramaters for displaying plot
   theme(text=element_text(size=18), title=element_text(size=18),
-        panel.border = element_blank(),
-        panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
-        axis.line = element_line(colour = "black"),
-        legend.position="top", legend.key=element_blank())
+        legend.position="top")
 
 # Write figure to a pdf in the 'figures' folder
 pdf("figures/incumbent_boxplot.pdf")
@@ -155,13 +146,10 @@ incumbent_barplot.plot = ggplot(data_figs_sum, aes(x = civil_war, y = mean,
   # Get rid of title for legend
   labs(fill = "") +
   # Remove dark background
-  theme_bw() +
+  theme_classic() +
   # Additional paramaters for displaying plot
   theme(text=element_text(size=18), title=element_text(size=18),
-        panel.border = element_blank(),
-        panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
-        axis.line = element_line(colour = "black"),
-        legend.position="top", legend.key=element_blank())
+        legend.position="top")
 
 # Write figure to a pdf in the 'figures' folder
 pdf("figures/incumbent_barplot.pdf")
